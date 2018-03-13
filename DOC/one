@@ -53,4 +53,10 @@ git commit -m '删除了doc'  //提交,添加操作说明
 
 git push origin master// 将本次更改更新到github项目上去
 
+<<<<<<< HEAD
 （每次增加文件、删除文件或修改文件，都要add、commit 然后直接 git push origin master，就可以同步到github上了）
+=======
+把你的项目粘贴到这个本地Git仓库里面（粘贴后你可以通过git status来查看你当前的状态），
+然后通过git add把项目添加到仓库（或git add .把该目录下的所有文件添加到仓库，注意点是用空格隔开的）。
+commit在这个过程中你其实可以一直使用git status来查看你当前的状态。
+>>>>>>> e486f478aaaa646355c3e1513d326de28c452615
