@@ -1,14 +1,56 @@
-Git，windows环境下有两个命令输入窗口
-第一个是可视化图形界面，第二个是CMD，第三个是Bash。
-
+安装Git后，可以看到windows环境下有两个命令输入窗口Git CMD 和Git Bash
 Git中的Bash是基于CMD的，在CMD的基础上增添一些新的命令与功能。
-所以建议在使用的时候，用Bash更加方便。
+所以建议在使用的时候，用Bash更加方便
+
+一、创建本地仓库（文件夹）
+
 mkdir study//创建文件夹study
 cd study //进入study文件夹
+
+二、通过命令git init把这个文件夹变成Git可管理的仓库
 git init //把这个文件夹变成Git可以管理的仓库
 
-这时你会发现study里面多了个.git文件夹，它是Git用来跟踪和管理版本库的。
-如果你看不到，是因为它默认是隐藏文件，那你就需要设置一下让隐藏文件可见。
+这时可以发现study里面多了个.git文件夹，它是Git用来跟踪和管理版本库的。如果你看不到，是因为它默认是隐藏文件，那你就需要设置一下让隐藏文件可见。
 
-把你的项目粘贴到这个本地Git仓库里面（粘贴后你可以通过git status来查看你当前的状态），
-然后通过git add把项目添加到仓库（或git add .把该目录下的所有文件添加到仓库，注意点是用空格隔开的）。在这个过程中你其实可以一直使用git status来查看你当前的状态。
+三、把项目粘贴到这个本地Git仓库里面（粘贴后你可以通过git status来查看你当前的状态），然后通过
+
+git add . //把项目添加到仓库（或git add .把该目录下的所有文件添加到仓库，注意点是用空格隔开的）。在这个过程中你其实可以一直使用git status来查看你当前的状态。
+
+git commit -m "注释"// 把项目提交到仓库。
+
+四、在github上创建study文件夹后
+
+git remote add origin https://github.com/husterlihuijuan/study.git   //与github（远程仓库）建立联系
+
+git push -u origin master  //把本地库study的所有内容推送到远程仓库（也就是Github）上，此后，每次本地提交后，只要有必要，就可以使用命令git push origin master推送最新修改；
+
+ 至此就完成了将本地项目上传到Github的整个过程。
+
+五、创建分支
+
+git branch note //创建note分支
+
+git checkout note //切换到note分支
+
+六、把分支添加到github上
+
+git push --set-upstream origin note //note分支已经上传到了 github
+
+ 
+
+注意：删除github上某个分支的文件夹
+
+在github上只能删除仓库,却无法删除文件夹, 所以只能通过命令来解决，如下：删除master分支下的doc文件夹
+
+ 
+
+git pull origin master //将远程仓库里面master分支的项目拉下来
+
+dir  //查看master分支有哪些文件夹
+
+git rm -r --cached doc  //删除master分支下的doc文件夹
+git commit -m '删除了doc'  //提交,添加操作说明
+
+git push origin master// 将本次更改更新到github项目上去
+
+（每次增加文件、删除文件或修改文件，都要add、commit 然后直接 git push origin master，就可以同步到github上了）
