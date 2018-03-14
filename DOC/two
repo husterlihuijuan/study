@@ -1,0 +1,26 @@
+react 入门
+react应用的构成模块是：元素和组件
+1、元素
+元素是构成React应用的最小的单元。元素用来描述在屏幕上看到的内容
+如：
+const element=<h1>hello</h1>;
+2、组件
+组件可以将UI切分成一些独立的、可复用的部件。
+组件可以接受一个任意值，并返回一个在页面上展示的React元素。
+定义组件有两种方式：
+①函数定义组件
+function 组件名（props）{
+    return 元素；
+}
+②类定义组件
+class 组件名 extends React.Component{
+    render（）{
+        return 元素；
+    }
+}
+两者的区别是：
+    函数组件是展示性组件，接受props，渲染DOM；
+    在函数组件中无法使用state，也没法使用组件的生命周期方法。
+    函数组件中没有this，但在类组件中仍要绑定this这个琐碎的事;
+    因此如：在类组件中要使用this.props来代替props。
+    类组件可以使用局部状态（state）和生命周期方法。
